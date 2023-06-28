@@ -37,7 +37,7 @@ def showNote(text):
         print('Нет ни одной заметки...')
 
 
-def refactorNote(text):
+def editNote(text):
     id = input('Введите id необходимой заметки: ')
     array = fileWorker.readFile()
     logic = True
