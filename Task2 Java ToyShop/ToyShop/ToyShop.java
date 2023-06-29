@@ -59,5 +59,27 @@ public class ToyShop {
         }
     }
 
-    
+    public Toy getToyById(int id) {
+        for (Toy toy : toyQueue) {
+            if (toy.getId() == id) {
+                return toy;
+            }
+        }
+        return null;
+    }
+
+    public void addToy(Toy toy) {
+        toyQueue.add(toy);
+    }
+
+    public void saveResultToFile(String filename) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            for (int i = 0; i < toyQueue.size(); i++) {
+                writer.write(toyQueue.peek().getName() + " " + toyIds[i] + " " + toyWeights[i]);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
